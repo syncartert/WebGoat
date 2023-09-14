@@ -113,6 +113,10 @@ export EXCLUDE_LESSONS="SqlInjectionAdvanced,SqlInjectionMitigations"
 java -jar target/webgoat-8.2.3-SNAPSHOT.jar
 ```
 
+
+
+test
+
 Or in a docker run it would (once this version is pushed into docker hub) look like this:
 
 ```Shell
