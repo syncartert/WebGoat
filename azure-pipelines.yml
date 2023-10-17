@@ -1,39 +1,16 @@
 pool:
   vmImage: ubuntu-latest
  
-variables:
-- name: COVERITY_TOOLKIT
-  value: cov-analysis-linux64-2023.6.0
-- name: COVERITY_TOOL_HOME
-  value: $(Agent.TempDirectory)/$(COVERITY_TOOLKIT)
- 
-steps:
- 
-- script: |
-    set -x
-    curl -fLsS --user $COV_USER:$COVERITY_PASSPHRASE $COV_URL/downloadFile.htm?fn=$COVERITY_TOOLKIT.tar.gz | tar -C $(Agent.TempDirectory) -xzf -
-    curl -fLsS --user $COV_USER:$COVERITY_PASSPHRASE -o $COVERITY_TOOL_HOME/bin/license.dat $COV_URL/downloadFile.htm?fn=license.dat
-  env:
-    COVERITY_PASSPHRASE: $(COVERITY_PASSPHRASE)
-  displayName: 'Coverity Download'
- 
 
-- task: synopsys-coverity@1
+- task: SynopsysSecurityScan@1.2.0
   inputs:
-    coverityService: testing.coverity
-    projectName: 'SRH-Webgoat'
-    streamName: 'Release'
-    checkIssues: false
-    issueView: 'Outstanding Issues'
-    issueStatus: 'success'
-    coverityRunType: 'custom'
-    customCoverityCommands: 'coverity scan -o commit.connect.url=$COV_URL -o commit.connect.stream=$COV_STREAM'
-    allowUntrusted: true
-  displayName: 'Coverity Scan'
+    scanType: 'blackduck'
+    bridge_blackduck_url: 'https://testing.blackduck.synopsys.com'
+    bridge_blackduck_token: 'MGI5ODA0NzktZGI5Ni00OWEyLWE2ZjgtZGYwYThlZjI0NTA0OmU5ZGJhZTc2LTI5MWItNGUwMi1iOTU3LWYwZWQ4MzFmNmZlOA=='
+    bridge_blackduck_scan_full: true
 
 
-- task: SynopsysDetectTask@8
-  inputs:
-    BlackDuckService: 'testing.blackduck'
-    DetectArguments: '--detect.project.name=srh-webgoat --detect.project.version.name=Release'
-    DetectVersion: 'latest'
+  
+
+
+
