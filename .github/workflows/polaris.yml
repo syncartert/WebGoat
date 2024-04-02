@@ -29,5 +29,4 @@ jobs:
         polaris_branch_name: 'main'
         polaris_prComment_enabled: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
         polaris_reports_sarif_create: 'true'
-        polaris_upload_sarif_report: 'true'
         github_token: ${{ secrets.GITHUB_TOKEN }}
