@@ -25,7 +25,7 @@ jobs:
         polaris_assessment_types: 'SAST,SCA'
         polaris_application_name: 'SRH-Webgoat'
         polaris_project_name: 'Main'
-        polaris_branch_name: 'main
+        polaris_branch_name: 'main'
         polaris_prComment_enabled: 'true'
         polaris_reports_sarif_create: 'true'
         polaris_upload_sarif_report: 'true'
