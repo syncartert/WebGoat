@@ -1,0 +1,25 @@
+{
+    "data": {
+        "polaris": {
+            "accesstoken": "5hbnp60o0p2el6voad307ohv7q1tv2uvmie458k1ukdgldrv34b48upl3g240uci1ld63j85ab5ec",
+            "application": {
+                "name": "SRH-Test"
+            },
+            "project": {
+                "name": "Webgoat"
+            },
+            "branch": {
+                "name": "main"
+            },
+            "assessment": {
+                "types":  ["SCA"]
+            },
+            "test": {
+                "SCA": {
+                    "type": "SCA-SIGNATURE"
+                }
+            },
+            "serverUrl": "https://cdev.altair.synopsys.com"
+        }
+    }
+}
