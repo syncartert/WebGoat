@@ -24,7 +24,7 @@ jobs:
         polaris_server_url: ${{ vars.POLARIS_SERVERURL }}
         polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
         polaris_assessment_types: 'SAST,SCA'
-        polaris_application_name: 'SRH-WebGoat'
+        polaris_application_name: 'SH-Demo'
         polaris_project_name: 'Main'
         polaris_branch_name: 'main'
         polaris_prComment_enabled: ${{ github.event_name == 'pull_request' && 'true' || 'false' }}
