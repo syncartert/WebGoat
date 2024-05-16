@@ -26,8 +26,8 @@ steps:
     curl -fLsS -o bridge.zip $BRIDGECLI_LINUX64 && unzip -qo -d $(Agent.TempDirectory) bridge.zip && rm -f bridge.zip
     $(Agent.TempDirectory)/synopsys-bridge --stage polaris
   env:
-    BRIDGE_POLARIS_SERVERURL: $(POLARIS_SERVERURL)
-    BRIDGE_POLARIS_ACCESSTOKEN: $(POLARIS_ACCESSTOKEN)
+    BRIDGE_POLARIS_SERVERURL: $(BRIDGE_POLARIS_SERVERURL)
+    BRIDGE_POLARIS_ACCESSTOKEN: $(BRIDGE_POLARIS_ACCESSTOKEN)
     BRIDGE_POLARIS_ASSESSMENT_TYPES: 'SAST,SCA'
     BRIDGE_POLARIS_APPLICATION_NAME: cartert-WebGoat
     BRIDGE_POLARIS_PROJECT_NAME: cartert-WebGoat-Azure
@@ -40,8 +40,8 @@ steps:
     curl -fLsS -o bridge.zip $BRIDGECLI_LINUX64 && unzip -qo -d $(Agent.TempDirectory) bridge.zip && rm -f bridge.zip
     $(Agent.TempDirectory)/synopsys-bridge --stage polaris
   env:
-    BRIDGE_POLARIS_SERVERURL: $(POLARIS_SERVERURL)
-    BRIDGE_POLARIS_ACCESSTOKEN: $(POLARIS_ACCESSTOKEN)
+    BRIDGE_POLARIS_SERVERURL: $(BRIDGE_POLARIS_SERVERURL)
+    BRIDGE_POLARIS_ACCESSTOKEN: $(BRIDGE_POLARIS_ACCESSTOKEN)
     BRIDGE_POLARIS_ASSESSMENT_TYPES: 'SAST,SCA'
     BRIDGE_POLARIS_APPLICATION_NAME: cartert-WebGoat
     BRIDGE_POLARIS_PROJECT_NAME: cartert-WebGoat-Azure
@@ -49,7 +49,7 @@ steps:
     BRIDGE_POLARIS_BRANCH_PARENT_NAME: $(System.PullRequest.targetBranchName)
     BRIDGE_POLARIS_PRCOMMENT_ENABLED: true
     BRIDGE_AZURE_USER_TOKEN: $(System.AccessToken)
-    BRIDGE_AZURE_ORGANIZATION_NAME: chuckaude
+    BRIDGE_AZURE_ORGANIZATION_NAME: syncartert
     BRIDGE_AZURE_REPOSITORY_NAME: $(Build.Repository.Name)
     BRIDGE_AZURE_PROJECT_NAME: $(Build.Repository.Name)
     BRIDGE_AZURE_REPOSITORY_BRANCH_NAME: $(System.PullRequest.SourceBranch)
